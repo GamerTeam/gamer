@@ -24,6 +24,7 @@
 			</div>
 		</div>
 		</nav>
+		<p>123321</p>
 		<div class="col-xs-12 gameContent padding-index">
 			<selection class="selection-wrap align-center">
 			<h1 class="hero-header">来提升你的技能吧！</h1>
