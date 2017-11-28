@@ -26,7 +26,7 @@
 		</nav>
 		<div class="col-xs-12 gameContent padding-index">
 			<selection class="selection-wrap align-center">
-			<p>angle</p>
+			<p>angle </p>
 			<h1 class="hero-header">来提升你的技能吧！</h1>
 			<h2 class="hero-select">
 				<p class='pDisplayInline'>我想提升</p>
