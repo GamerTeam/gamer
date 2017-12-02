@@ -6,7 +6,11 @@ public class User {
 	private String name;
 	private String pwd;
 	private int role;
-	private byte[] img;
+	private String img;
+	private String userName;
+	private String nickName;
+	private String gameName;
+	private String info;
 	private int sex;
 	private int age;
 	private String location;
@@ -38,11 +42,36 @@ public class User {
 		this.role = role;
 	}
 	
-	public byte[] getImg() {
+	public String getImg() {
 		return img;
 	}
-	public void setImg(byte[] img) {
+	public void setImg(String img) {
 		this.img = img;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
+	public String getNickName() {
+		return nickName;
+	}
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+	public String getGameName() {
+		return gameName;
+	}
+	public void setGameName(String gameName) {
+		this.gameName = gameName;
+	}
+	public String getInfo() {
+		return info;
+	}
+	public void setInfo(String info) {
+		this.info = info;
 	}
 	public int getSex() {
 		return sex;

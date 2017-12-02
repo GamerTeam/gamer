@@ -19,7 +19,7 @@ function checkUserInfo() {
 		dataType : "json",
 		async : false,
 		success : function(data) {
-			if (data == true) {
+			if (data != null) {
 				window.location.href = "jsp/profile.jsp";
 			} else {
 				alert("用户名或密码错误");

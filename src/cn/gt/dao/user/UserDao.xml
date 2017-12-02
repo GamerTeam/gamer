@@ -4,18 +4,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.gt.dao.user.UserDao">
 
-<!-- profile.jsp中的更换图片前验证是否登录状态 -->
-	<resultMap type="int" id="resultId02">
+
+<!-- profile.jsp中更新头像 -->
+	<update id="upload" parameterType="user">
+		update gt_user set u_img=#{img} where u_id=#{uId}
+	</update>
+
+<!-- profile.jsp中更新资料 -->
+	<update id="uploadInfo" parameterType="user">
+		update gt_user set u_userName=#{userName}, u_nickName=#{nickName}, u_gameName=#{gameName},
+		u_info=#{info} where u_id=#{uId}
+	</update>
+
+<!-- profile.jsp中的更换图片和资料前验证是否登录状态 -->
+	<resultMap type="int" id="resultId03">
 		<result column="u_id" property="uId"/>
 	</resultMap>
-	<select id="findId" parameterType="string" resultMap="resultId02">
+	<select id="findId" parameterType="string" resultMap="resultId03">
 		select uId from gt_user where u_name=#{value}
 	</select>
 
-<!-- profile.jsp中的更换图片 -->
-	<insert id="upload" >
-		insert into gt_user(u_img) values (#{idPicPath}) where u_id=#{uId}
-	</insert>
+<!-- 获取用户信息 -->
+	<resultMap type="user" id="resultId02">
+		<result column="u_name" property="name"/>
+		<result column="u_userName" property="userName"/>
+		<result column="u_gameName" property="gameName"/>
+		<result column="u_info" property="info"/>
+		<result column="u_img" property="img"/>
+	</resultMap>
+	<select id="selectUserInfo" parameterType="int" resultMap="resultId02">
+		select u_name, u_userName, u_gameName, u_info, u_img from gt_user
+		where u_id=#{value}
+	</select>
 
 <!-- 登录 -->
 	<resultMap type="user" id="resultId01">

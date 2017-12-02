@@ -13,14 +13,18 @@ public class UserServiceImpl implements UserService {
 	private UserDao userDao;
 	
 	//登录
-	public boolean selectUser(User user){
+	public User selectUser(User user){
 		User users = userDao.selectUser(user);
-		boolean flag = false;
-		if(users != null){
-			flag = true;
-		}
-		return flag;
+		return users;
 		
+	}
+
+	//获取用户信息
+	@Override
+	public User selectUserInfo(int uId) {
+		// TODO Auto-generated method stub
+		User user = userDao.selectUserInfo(uId);
+		return user;
 	}
 	
 	//判断账号是否可用
@@ -39,18 +43,6 @@ public class UserServiceImpl implements UserService {
 		return i;
 	}
 
-	//profile.jsp中提交图片到数据库
-	@Override
-	public boolean upload(String idPicPath, int uId) {
-		// TODO Auto-generated method stub
-		int i = userDao.upload(idPicPath, uId);
-		boolean flag = false;
-		if(i != 0){
-			flag = true;	
-		}
-		return flag;
-	}
-
 	//profile.jsp中更换图片前验证是否登录状态
 	@Override
 	public int findId(String userName) {
@@ -58,5 +50,30 @@ public class UserServiceImpl implements UserService {
 		int uId = userDao.findId(userName);
 		return uId;
 	}
+
+	//profile.jsp更新用户资料
+	@Override
+	public boolean uploadInfo(User user) {
+		// TODO Auto-generated method stub
+		int i = userDao.uploadInfo(user);
+		boolean flag = false;
+		if(i == 1){
+			flag = true;
+		}
+		return flag;
+	}
+
+	//profile.jsp更新用户头像
+	@Override
+	public boolean upload(User user) {
+		// TODO Auto-generated method stub
+		int i = userDao.upload(user);
+		boolean flag = false;
+		if(i == 1){
+			flag = true;
+		}
+		return flag;
+	}
+
 
 }

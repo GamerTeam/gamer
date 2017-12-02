@@ -9,11 +9,17 @@ public interface UserService {
 
 	//添加用户
 	int addUser(User user);
-
-	boolean selectUser(User user);
-
-	boolean upload(String idPicPath, int uId);
-
+	//登录
+	User selectUser(User user);
+	//获取用户信息
+	User selectUserInfo(int uId);
+	
 	int findId(String userName);
 
+	boolean uploadInfo(User user);
+
+	boolean upload(User user);
+
+
 }
+

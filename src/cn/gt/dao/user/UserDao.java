@@ -14,10 +14,16 @@ public interface UserDao {
 
 	//登录
 	User selectUser(User user);
-
-	int upload(@Param("idPicPath")String idPicPath, @Param("uId")int uId);
+	
+	//获取用户信息
+	User selectUserInfo(int uId);
 
 	int findId(String userName);
+
+	int uploadInfo(User user);
+
+	int upload(User user);
+
 
 
 }
